@@ -4,3 +4,5 @@ RUN apk add --no-cache \
         build-base \
         git \
         git-lfs
+
+ENTRYPOINT ["git"]
