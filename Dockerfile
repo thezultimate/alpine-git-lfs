@@ -1,8 +1,11 @@
-FROM alpine:3.7
+FROM alpine
 
-RUN apk add --no-cache \
-        build-base \
-        git \
-        git-lfs
+RUN apk --update add git git-lfs less openssh && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /var/cache/apk/*
+
+VOLUME /git
+WORKDIR /git
 
 ENTRYPOINT ["git"]
+CMD ["--help"]
